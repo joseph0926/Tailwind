@@ -1,3 +1,86 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn {
+  @apply bg-blue-300;
+}
+
+/*
+  Tailwind 개념
+
+  1) 반응형
+    sm  -> 640px
+    md  -> 768px
+    lg  -> 1024px
+    xl  -> 1280px
+    2xl -> 1536px
+
+    bg-red sm:bg-blue md:bg-green => 0 ~ 640px red, 641px ~ 768px blue, 769px ~ green
+
+  2) 다크모드
+    tailwind.config.js 파일에서...
+      darkMode: "media" => 컴퓨터 설정에 따라 다크 or 라이트 모드가 적용됨
+      darkMode: "class", => 웹 설정에 따라 다크 or 라이트 모드가 적용됨
+        -> 최상위 루트에서 className="dark"시 다크모드 적용됨, ""이면 라이트모드
+    
+    ex) className="dark:bg-black-900 dark:text-blue-200"
+
+  3) 커스텀 속성
+    tailwind.config.js 파일에서...
+      theme: {
+        extend: {},
+        screens: {
+          sm: "480px",
+      },
+      -> 원래 sm의 엔드포인트는 640px이지만, 이렇게 설정해주면 480px로 변경된다
+    
+    또한 text-[3rem] 처럼 값도 커스터마이징할수있다
+
+  4) @apply
+      반복되는 스타일을 일반 css의 클래스명처럼 지정할수있다
+        global.css or index.css 처럼 글로벌 css 파일에서...
+        -> 
+      
+      ex) .btn {
+            @apply bg-blue-300;
+         }
+*/
+
+/*
+
+  Tailwind 기능
+    
+    1) 색상
+      100  ~  900
+      밝음   어두움
+
+    2) 간격
+      m => margin
+      p => padding
+         4 => 1rem
+          +1 => +0.25rem
+          -1 => -0.25rem
+    
+    3) 타이포그래피
+      font-size => text-xs sm base xl 2xl 3xl 9xl
+      font-family => font-sans
+      letter-spacing => tracking-tighter tight normal wide wider widest
+      line-hight => leading-4 (1rem)
+    
+    4) 사이즈
+      w-full => width: 100%
+         w-1/2 => width: 50%
+      w-screen => width: 100vw
+    
+    5) 그라데이션
+       bg-gradient-to-그라데이션 적용될 방향 from-red-300 via-purple-300 to-pink-600
+
+    6) border
+      border-radius => rounded-sm xl full...
+      border-width => border-2 (border-width: 2px)
+    
+    7) Tailwind build
+      package.json 스크립트에
+         "tailwindcss -i ./style.css -o ./css/main.css
+*/
